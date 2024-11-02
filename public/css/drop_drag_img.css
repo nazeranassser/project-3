@@ -1,0 +1,54 @@
+
+        .upload-container {
+            text-align: center;
+            width: 400px;
+        }
+        .drop-area {
+            border: 2px dashed #ff4500;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .drop-area.dragover {
+            background-color: #feeee9;
+        }
+
+        .drop-area p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .drop-area span {
+            color: #ff4500;
+            cursor: pointer;
+        }
+
+        .preview-container {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .preview-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .preview-container button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            margin-top:20px;
+            background-color: red;
+            color: #fff;
+        }

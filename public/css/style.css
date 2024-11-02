@@ -1,0 +1,528 @@
+/*
+:root {
+  --footer-bg: #F8E1D4;       لون خلفية الفوتر 
+  --text-color: #3E2723;      لون النصوص 
+  --accent-orange: #D2691E;   لون برتقالي للعناوين والأزرار 
+  --accent-pink: #FF6F61;     لون وردي للتفاصيل التفاعلية 
+}
+  */
+
+  :root {
+    --footer-bg: #FFF3E6;      /* Lighter warm background */
+    --text-color: #3E2723;     /* Deep brown for text */
+    --accent-orange: #D2691E;  /* Chocolate orange */
+    --accent-pink: #FF6F61;    /* Coral pink */
+    --cream-color: #FFF8DC;    /* Cream color for overlays */
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+  }
+  
+  body {
+    min-height: 100vh;
+    position: relative;
+    background-color: #FFFAF3;
+    overflow-x: hidden;
+  }
+       /* body css  forms css start */
+  /* Floating Background Elements Animation */
+  body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 10% 20%, transparent 20%, rgba(255, 243, 230, 0.03) 20.5%),
+      radial-gradient(circle at 90% 80%, transparent 20%, rgba(210, 105, 30, 0.03) 20.5%),
+      radial-gradient(circle at 50% 50%, transparent 30%, rgba(255, 111, 97, 0.03) 30.5%);
+    animation: backgroundFloat 20s infinite linear;
+    z-index: -1;
+  }
+  
+  /* Floating Cake Images */
+  .floating-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .floating-image {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    animation: float 15s infinite linear;
+  }
+  
+  /* Form Styling */
+  /* نمط للفورم الأساسي */
+  form {
+    background: rgba(255, 255, 255, 0.9);
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: formAppear 0.8s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* تنسيق الحقول */
+  form input {
+    flex: 1 1 calc(50% - 1rem); /* كل حقل يأخذ نصف العرض */
+    outline: none;
+    border: 2px solid var(--footer-bg);
+    padding: 12px;
+    border-radius: 8px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* Password section styling */
+  .password-section {
+    flex: 1 1 100%; /* Make the password fields take the full width */
+    display: flex;
+    gap: 1rem; /* Space between the password fields */
+  }
+  
+  /* Specific styles for password fields */
+  .password-section input {
+    flex: 1; /* Each password field takes equal space */
+  }
+  
+  /* Focus state for inputs */
+  form input:focus {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.2);
+  }
+  
+  /* تنسيق الزر */
+  form button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  form button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.6s ease;
+  }
+  
+  form button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  form button:hover {
+    background-color: var(--accent-pink);
+    transform: translateY(-2px);
+  }
+  
+  /* Headers */
+  .header {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    color: var(--accent-orange);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: headerAppear 1s ease-out;
+  }
+  
+  /* Messages */
+  .form-message {
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    max-width: 560px;
+    width: 90%;
+    padding: 1rem;
+    animation: messageSlide 0.5s ease-out;
+  }
+  
+  .form-message-red {
+    background-color: #ffebee;
+    border: 2px solid #ffcdd2;
+  }
+  
+  .form-message-green {
+    background-color: #e8f5e9;
+    border: 2px solid #c8e6c9;
+  }
+  
+  .form-sub-msg {
+    text-align: center;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 560px;
+  }
+  
+  .form-sub-msg a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-sub-msg a:hover {
+    color: var(--accent-pink);
+    text-decoration: underline;
+  }
+  
+  /* Animations */
+  @keyframes formAppear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes headerAppear {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes messageSlide {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(var(--tx), var(--ty)) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes backgroundFloat {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+       /* body css  forms css end */
+  
+  
+  a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    /* color: inherit; */
+  }
+  
+   /*    navbar start */
+  
+  :root {
+    --footer-bg: #F8E1D4;
+    --text-color: #3E2723;
+    --accent-orange: #D2691E;
+    --accent-pink: #FF6F61;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  nav {
+    background: var(--footer-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent-pink);
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-pink);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .icon {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+  }
+  
+  .icon:hover {
+    color: var(--accent-pink);
+    transform: scale(1.1);
+  }
+  
+  .icon-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--accent-pink);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 1.5rem;
+  }
+  
+  .auth-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login {
+    background: transparent;
+    color: var(--accent-orange);
+    border: 2px solid var(--accent-orange);
+  }
+  
+  .signup, .logout {
+    background: var(--accent-orange);
+    color: white;
+  }
+  
+  .auth-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--accent-pink);
+    color: white;
+    border-color: var(--accent-pink);
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  .nav-item {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  @keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+  
+  .icon:hover i {
+    animation: pulse 1s infinite;
+  }
+  
+  .mylog {
+    width: 120px; 
+    height: auto;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+  }
+  
+  
+  .mylog:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  }
+  
+      /* (welcome + img) fetch*/
+      .user-welcome {
+        display: flex; 
+        align-items: center; 
+    }
+  
+    .user-welcome img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-left: 7px; 
+    }
+   /*    navbar end */
+  /* Password Requirements Styling */
+
+  
+/* Center and style the checkout button */
+.checkout-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent-orange);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 20px; /* المسافة من الأسفل */
+}
+
+.checkout-btn:hover {
+  background-color: var(--accent-pink);
+  transform: translateY(-2px);
+}
+
+
+/* Style for the quantity input area */
+.table-p__input-counter-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.input-counter__minus,
+.input-counter__plus {
+  color: var(--accent-orange);
+  font-size: 1.2rem;
+  padding: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.input-counter__text {
+  width: 50px;
+  text-align: center;
+  border: 1px solid var(--accent-orange);
+  color: var(--text-color);
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.input-counter__text:focus {
+  outline: none;
+  border-color: var(--accent-pink);
+}
+
+/* Hover effect on input buttons */
+.input-counter__minus:hover,
+.input-counter__plus:hover {
+  color: var(--accent-pink);
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  

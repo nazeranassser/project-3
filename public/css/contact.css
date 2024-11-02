@@ -1,0 +1,112 @@
+:root {
+    --footer-bg: #F8E1D4;        /* لون خلفية الفوتر */
+    --text-color: #3E2723;       /* لون النصوص */
+    --accent-orange: #D2691E;    /* لون برتقالي للعناوين والأزرار */
+    --accent-pink: #FF6F61;      /* لون وردي للتفاصيل التفاعلية */
+    --contact-bg: #FFFAF3;       /* لون خلفية قسم الاتصال */
+    --box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Section */
+.contact-section {
+    background: var(--contact-bg);
+    padding: 40px; /* Reduced from 100px */
+}
+
+.contact-section h1 {
+    margin-top: 20px; /* Reduced from 50px */
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 40px; /* Reduced from 100px */
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.contact-section .info-box {
+    background-color: transparent;
+    border: none;
+    height: 200px;
+    width: 230px;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 10px var(--box-shadow);
+}
+
+.contact-section .info-box .bi {
+    background: linear-gradient(to right, var(--accent-orange), var(--accent-pink));
+    border-radius: 55%;
+    padding: 15px 18px;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+}
+
+.contact-section .info-box h3 {
+    font-size: 25px;
+    margin-top: 30px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact-section .info-box p {
+    font-size: 15px;
+    color: var(--accent-orange);
+}
+
+.contact-section .info-box:hover {
+    background: var(--accent-orange);
+    color: #fff;
+    transform: scale(0.9);
+}
+
+.contact-section .info-box:hover p {
+    color: var(--accent-pink);
+}
+
+.contact-section .info-box:hover .bi {
+    background: #fff;
+    color: var(--accent-orange);
+    font-size: 25px;
+    text-align: center;
+}
+
+.contact-section .form {
+    margin-top: 30px; /* Reduced from 50px */
+}
+
+.contact-section form input,
+.contact-section form textarea {
+    margin-top: 10px;
+    border: none;
+    background: #f1f1f1;
+    color: var(--accent-orange);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.contact-section form button {
+    margin-top: 20px;
+    border-radius: 30px;
+    color: #fff;
+    border: none;
+    background-color: var(--accent-pink);
+    height: 50px;
+    width: 170px;
+    text-transform: capitalize;
+}
+
+.contact-section form button:hover {
+    background-color: #fff;
+    border: 2px solid var(--accent-orange);
+    color: var(--accent-pink);
+}
+
+@media (max-width: 700px) {
+    .contact-section {
+        padding: 30px; /* Reduced from 50px */
+    }
+}
